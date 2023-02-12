@@ -1,0 +1,147 @@
+                               ////Day 6////
+
+i) write a person class to hold all the details
+
+class Person {
+  constructor(firstName, lastName, age, gender) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+  
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  
+  getDetails() {
+    return `Name: ${this.getFullName()}, Age: ${this.age}, Gender: ${this.gender}`;
+  }
+}
+
+let firstName = prompt("Enter first name:");
+let lastName = prompt("Enter last name:");
+let age = prompt("Enter age:");
+let gender = prompt("Enter gender:");
+
+let person = new Person(firstName, lastName, age, gender);
+
+console.log(person.getDetails());
+
+The above code will get input from the user.
+
+ (type 2) 
+  
+class Person {
+  constructor(firstName, lastName, age, gender) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+  
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  
+  getDetails() {
+    return `Name: ${this.getFullName()}, Age: ${this.age}, Gender: ${this.gender}`;
+  }
+}
+let person1 = new Person("Sri", "kanth", 24, "Male");
+let person2 = new Person("Andrew", "Tate", 34, "Female");
+
+console.log(person1.getDetails());
+console.log(person2.getDetails());
+
+
+J)write a class to calculate the uber price
+
+class Uber {
+  constructor(distance, time) {
+    this.distance = distance;
+    this.time = time;
+  }
+  
+  calculatePrice() {
+    let basePrice = 400;
+    let distancePrice = this.distance * 100;
+    let timePrice = this.time * 15;
+    return basePrice + distancePrice + timePrice;
+  }
+}
+
+let trip1 = new Uber(10, 30);
+let trip2 = new Uber(5, 20);
+
+console.log(`Trip 1: ₹${trip1.calculatePrice().toFixed(2)}`);
+console.log(`Trip 2: ₹${trip2.calculatePrice().toFixed(2)}`);
+
+This code defines an Uber class with two properties: distance and time, which represent the distance and time of the trip, respectively. The Uber class also has a method called calculatePrice, which calculates the price of the trip based on the distance and time of the trip. The price is calculated using a base price of ₹400, a ₹100 per kilometer rate for distance, and a ₹15 per minute rate for time.
+
+                    /////DAY 7/////
+
+
+1)Get all the countries from Asia continent /region using Filter function
+
+var request=new XMLHttpRequest();
+request.open('GET','https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function (){
+    var countryData=JSON.parse(this.response);
+    const asia=countryData.filter((a)=>{
+        if(a.region==='Asia'){
+            return a.name;
+        }
+    })
+    console.log(asia);}
+ 
+2)Get all the countries with a population of less than 2 lakhs using Filter function
+   
+var request=new XMLHttpRequest();
+   request.open('GET','https://restcountries.eu/rest/v2/all','true');
+   request.send();
+   request.onload=function (){
+   var countryData=JSON.parse(this.response);
+   const populate=countryData.filter((element)=>{
+        return element.population<200000;
+   })
+   console.log(populate);}
+ 
+3)Print the following details name, capital, flag using forEach function
+ 
+var request=new XMLHttpRequest();
+request.open('GET','https://restcountries.eu/rest/v2/all','true');
+request.send();
+request.onload=function (){
+    var countryData=JSON.parse(this.response);
+    countryData.forEach((element)=>{
+        console.log(element.name,element.capital,element.flag);
+    })}
+ 
+4)Print the total population of countries using reduce function
+    
+var request=new XMLHttpRequest();
+    request.open('GET','https://restcountries.eu/rest/v2/all','true');
+    request.send();
+    request.onload=function (){
+    var countryData=JSON.parse(this.response);
+    const population=countryData.reduce((acc,element)=>{
+        return acc+element.population;
+    })
+    console.log(population);}
+
+5)Print the country which use US Dollars as currency
+   
+var request = new XMLHttpRequest();
+   request.open('Get', 'https://restcountries.eu/rest/v2/all', true)
+   request.send();
+   request.onload = function () {
+   var data = JSON.parse(this.response);
+   for(i=0;i<data.length;i++){
+        if(data[i].currencies[0].code==="USD")
+       {
+           console.log("name:",data[i].name,"==>",data[i].currencies[0].code)
+       }
+     }
+    }
