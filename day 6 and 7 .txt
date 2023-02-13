@@ -85,7 +85,7 @@ This code defines an Uber class with two properties: distance and time, which re
 1)Get all the countries from Asia continent /region using Filter function
 
 var request=new XMLHttpRequest();
-request.open('GET','https://restcountries.eu/rest/v2/all','true');
+request.open('GET','https://restcountries.com/v3.1/all','true');
 request.send();
 request.onload=function (){
     var countryData=JSON.parse(this.response);
@@ -99,7 +99,7 @@ request.onload=function (){
 2)Get all the countries with a population of less than 2 lakhs using Filter function
    
 var request=new XMLHttpRequest();
-   request.open('GET','https://restcountries.eu/rest/v2/all','true');
+   request.open('GET','https://restcountries.com/v3.1/all','true');
    request.send();
    request.onload=function (){
    var countryData=JSON.parse(this.response);
@@ -111,7 +111,7 @@ var request=new XMLHttpRequest();
 3)Print the following details name, capital, flag using forEach function
  
 var request=new XMLHttpRequest();
-request.open('GET','https://restcountries.eu/rest/v2/all','true');
+request.open('GET','https://restcountries.com/v3.1/all','true');
 request.send();
 request.onload=function (){
     var countryData=JSON.parse(this.response);
@@ -122,7 +122,7 @@ request.onload=function (){
 4)Print the total population of countries using reduce function
     
 var request=new XMLHttpRequest();
-    request.open('GET','https://restcountries.eu/rest/v2/all','true');
+    request.open('GET','https://restcountries.com/v3.1/all','true');
     request.send();
     request.onload=function (){
     var countryData=JSON.parse(this.response);
@@ -134,7 +134,7 @@ var request=new XMLHttpRequest();
 5)Print the country which use US Dollars as currency
    
 var request = new XMLHttpRequest();
-   request.open('Get', 'https://restcountries.eu/rest/v2/all', true)
+   request.open('Get', 'https://restcountries.com/v3.1/all', true)
    request.send();
    request.onload = function () {
    var data = JSON.parse(this.response);
